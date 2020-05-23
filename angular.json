@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "scl-estatico"
+    }
+  },
+  "defaultProject": "scl-estatico",
+  "cli": {
+    "analytics": "a437f5e6-579b-491c-8716-0836d1c29695"
+  }
 }
