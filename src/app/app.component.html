@@ -1,2 +1,12 @@
-<h1>SCL - Sistema de Cadastro de Livros</h1>
-<router-outlet></router-outlet>
+<div class="ui-g">
+  <div class="ui-g-4"></div>
+  <div class="ui-g-4">
+    <p-card header="SCL - Sistema de Cadastro de Livros">
+      <a [routerLink]="['/']">
+        Home
+      </a>
+      <router-outlet></router-outlet>
+    </p-card>
+  </div>
+  <div class="ui-g-4"></div>
+</div>

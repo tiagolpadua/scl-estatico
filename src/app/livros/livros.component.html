@@ -1,7 +1,20 @@
-<p>Listagem de livros</p>
+<h2>Listagem de livros</h2>
 
 <ul>
   <li *ngFor="let livro of livros">
     {{ livro.nome }}
+    <button pButton type="button" icon="pi pi-pencil"></button>
+    <button
+      pButton
+      type="button"
+      class="ui-button-danger"
+      icon="pi pi-times"
+      (click)="excluir(livro.id)"
+    ></button>
   </li>
 </ul>
+<button pButton type="button" icon="pi pi-plus"></button>
+<p-confirmDialog
+  header="Confirmação"
+  icon="pi pi-exclamation-triangle"
+></p-confirmDialog>

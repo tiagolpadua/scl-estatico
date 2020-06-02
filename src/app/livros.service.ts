@@ -21,11 +21,15 @@ export interface ILivro {
 export class LivrosService {
   constructor(private http: HttpClient) {}
 
+  getBaseURI(): string {
+    return BASE_URI;
+  }
+
   listar(): Observable<ILivro[]> {
     return this.http.get<ILivro[]>(BASE_URI + '/livros');
   }
 
-  getBaseURI(): string {
-    return BASE_URI;
+  excluir(id: number): Observable<void> {
+    return this.http.delete<void>(BASE_URI + `/livros/${id}`);
   }
 }
