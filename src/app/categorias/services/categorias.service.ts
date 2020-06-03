@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-
-const BASE_URI = 'http://localhost:8080';
+import { environment } from 'src/environments/environment';
 
 export interface ICategoria {
   id: number;
@@ -15,30 +14,29 @@ export interface ICategoria {
 export class CategoriasService {
   constructor(private http: HttpClient) {}
 
-  getBaseURI(): string {
-    return BASE_URI;
-  }
-
   listar(): Observable<ICategoria[]> {
-    return this.http.get<ICategoria[]>(BASE_URI + '/categorias');
+    return this.http.get<ICategoria[]>(environment.baseURI + '/categorias');
   }
 
   incluir(categoria: ICategoria): Observable<ICategoria> {
-    return this.http.post<ICategoria>(BASE_URI + '/categorias', categoria);
+    return this.http.post<ICategoria>(
+      environment.baseURI + '/categorias',
+      categoria
+    );
   }
 
   alterar(categoria: ICategoria): Observable<ICategoria> {
     return this.http.put<ICategoria>(
-      BASE_URI + `/categorias/${categoria.id}`,
+      environment.baseURI + `/categorias/${categoria.id}`,
       categoria
     );
   }
 
   consultar(id: number): Observable<ICategoria> {
-    return this.http.get<ICategoria>(BASE_URI + `/categorias/${id}`);
+    return this.http.get<ICategoria>(environment.baseURI + `/categorias/${id}`);
   }
 
   excluir(id: number): Observable<void> {
-    return this.http.delete<void>(BASE_URI + `/categorias/${id}`);
+    return this.http.delete<void>(environment.baseURI + `/categorias/${id}`);
   }
 }
