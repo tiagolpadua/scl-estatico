@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LivrosService, ILivro } from '../livros.service';
+import { LivrosService, ILivro } from '../../services/livros.service';
 import { ConfirmationService } from 'primeng/api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-livros',
@@ -8,12 +9,13 @@ import { ConfirmationService } from 'primeng/api';
   styleUrls: ['./livros.component.css'],
 })
 export class LivrosComponent implements OnInit {
+  livros: ILivro[];
+
   constructor(
     private livrosService: LivrosService,
-    private confirmationService: ConfirmationService
+    private confirmationService: ConfirmationService,
+    private router: Router
   ) {}
-
-  livros: ILivro[];
 
   ngOnInit(): void {
     this.atualizarLivros();
@@ -30,5 +32,13 @@ export class LivrosComponent implements OnInit {
         this.livrosService.excluir(id).subscribe(() => this.atualizarLivros());
       },
     });
+  }
+
+  mantem(id?: string): void {
+    if (id) {
+      this.router.navigate(['/mantem-livro', id]);
+    } else {
+      this.router.navigate(['/mantem-livro']);
+    }
   }
 }

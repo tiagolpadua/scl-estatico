@@ -1,0 +1,44 @@
+<h2>Listagem de livros</h2>
+
+<p-table [value]="livros">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Título</th>
+      <th>Categoria</th>
+      <th>Ações</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-livro>
+    <tr>
+      <td>{{ livro.nome }}</td>
+      <td>{{ livro.categoria.nome }}</td>
+      <td>
+        <button
+          pButton
+          type="button"
+          icon="pi pi-pencil"
+          (click)="mantem(livro.id)"
+        ></button>
+        <button
+          pButton
+          type="button"
+          class="ui-button-danger"
+          icon="pi pi-times"
+          (click)="excluir(livro.id)"
+        ></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+<br />
+<button
+  pButton
+  type="button"
+  icon="pi pi-plus"
+  (click)="mantem()"
+  label="Incluir Livro"
+></button>
+<p-confirmDialog
+  header="Confirmação"
+  icon="pi pi-exclamation-triangle"
+></p-confirmDialog>

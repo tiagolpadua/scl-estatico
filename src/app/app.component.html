@@ -1,12 +1,28 @@
-<div class="ui-g">
-  <div class="ui-g-4"></div>
-  <div class="ui-g-4">
-    <p-card header="SCL - Sistema de Cadastro de Livros">
-      <a [routerLink]="['/']">
-        Home
-      </a>
-      <router-outlet></router-outlet>
-    </p-card>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" href="#">SCL - Sistema de Controle de Livros</a>
+  <button class="navbar-toggler" type="button">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/']">Início</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/livros']">Livros</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/categorias']">Categorias</a>
+      </li>
+    </ul>
   </div>
-  <div class="ui-g-4"></div>
-</div>
+</nav>
+
+<main role="main" class="container">
+  <div class="starter-template">
+    <router-outlet></router-outlet>
+  </div>
+</main>
+
+<p-toast position="bottom-right"></p-toast>

@@ -1,0 +1,42 @@
+<form (ngSubmit)="onSubmit()" name="formCategoria" #formCategoria="ngForm">
+  <h1>{{ id ? "Alterar" : "Incluir" }} Categoria</h1>
+  <br />
+  <div class="form-group" style="width: 250px;">
+    <span class="ui-float-label">
+      <input
+        id="float-input"
+        type="text"
+        size="30"
+        pInputText
+        required
+        [(ngModel)]="nome"
+        name="nome"
+        #inputNome="ngModel"
+        style="width: 100%;"
+      />
+      <label for="float-input">Nome</label>
+    </span>
+    <div
+      [hidden]="inputNome.valid || inputNome.pristine"
+      class="alert alert-danger"
+      style="width: 100%;"
+    >
+      Nome é obrigatório
+    </div>
+  </div>
+
+  <div class="button-bar">
+    <button
+      pButton
+      type="submit"
+      label="Confirmar"
+      [disabled]="!formCategoria.form.valid"
+    ></button>
+    <button
+      pButton
+      label="Cancelar"
+      class="ui-button-warning"
+      (click)="cancelar()"
+    ></button>
+  </div>
+</form>
