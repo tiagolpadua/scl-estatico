@@ -21,7 +21,7 @@ export class MantemCategoriaComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.id = parseInt(this.activatedRoute.snapshot.paramMap.get('id'));
+    this.id = parseInt(this.activatedRoute.snapshot.paramMap.get('id'), 10);
 
     if (this.id) {
       this.categoriasService
